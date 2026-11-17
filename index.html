@@ -2,33 +2,33 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quick Question 👀</title>
+<title>For You ❤️</title>
 <style>
-body{font-family:Arial; background:#fff0f5; text-align:center; padding:20px; margin:0}
-.card{background:white; max-width:400px; margin:20px auto; padding:20px; border-radius:20px; box-shadow:0 5px 20px rgba(0,0,0,0.1)}
-img{width:100%; border-radius:15px; object-fit:cover}
-h2{font-size:22px}
-button{padding:14px 28px; font-size:18px; border:none; border-radius:30px; cursor:pointer; margin:8px}
-.yes{background:#ff2d55; color:white}
-.no{background:#eee; color:#333}
-input, textarea{width:90%; padding:12px; border-radius:12px; border:1px solid #ddd; font-size:16px; margin:10px 0}
-.hidden{display:none}
+body{background:#ffe6ee;font-family:Arial;text-align:center;padding:20px;margin:0}
+.card{background:white;border-radius:20px;padding:25px;margin:15px auto;max-width:420px;box-shadow:0 5px 20px rgba(0,0,0,0.1)}
+.hidden{display:none!important}
+button{border:none;padding:13px 22px;border-radius:30px;font-size:16px;margin:6px;cursor:pointer}
+.yes{background:#ff2d55;color:white}
+.no{background:#eee}
+input{width:90%;padding:13px;border-radius:12px;border:1px solid #ddd;font-size:16px;margin:8px 0}
+img{width:100%;border-radius:15px}
+h2{margin-top:5px}
 </style>
 </head>
 <body>
+
+<!-- Q0 - FIRST -->
 <div class="card" id="q0">
-  <h2>Wait... before we start 👀❤️</h2>
-  <p>Who are you? I need to know who this beautiful soul is.</p>
-  
-  <p style="text-align:left; margin-bottom:2px;"><b>Your name:</b></p>
-  <input id="herName" placeholder="Type your name." />
-
-  <p style="text-align:left; margin-bottom:2px;"><b>Your current mood:</b></p>
-  <input id="herMood" placeholder="Happy? Blushing? Smiling? 😊" />
-
+  <h2>Wait! before we start👀❤️</h2>
+  <p>Who are you?🫦</p>
+  <p style="text-align:left"><b>Your name:</b></p>
+  <input id="herName" placeholder="your name beautiful🫦" />
+  <p style="text-align:left"><b>Your current mood:</b></p>
+  <input id="herMood" placeholder="😑😊" />
   <button class="yes" onclick="checkMood()">Continue ➡️</button>
-  <p id="moodMsg" style="color:#ff2d55; font-weight:bold;"></p>
+  <p id="moodMsg" style="color:#ff2d55;font-weight:bold"></p>
 </div>
+
 <div class="card" id="q1">
   <img src="me.jpg">
   <h2>Do you know this person? 👀</h2>
@@ -44,7 +44,7 @@ input, textarea{width:90%; padding:12px; border-radius:12px; border:1px solid #d
 </div>
 
 <div class="card hidden" id="q3">
-  <h2>He says he wants you to be his girlfriend, best friend, partner and a wife, what do you think? 💍</h2>
+  <h2>He says he can be your man, your superman, spiderman and best friend, what do you think?</h2>
   <textarea id="a3" placeholder="Type here..."></textarea><br>
   <button class="yes" onclick="next('q3','q4')">Next ➡️</button>
 </div>
@@ -96,7 +96,7 @@ function sendIG(){
   const a2 = document.getElementById('a2').value;
   const a3 = document.getElementById('a3').value;
   const a4 = document.getElementById('a4').value;
-  const text = `Hey, I did your questionnaire ❤️\n\nHow well do I know you? ${a2}\nGirlfriend/best friend/partner/wife? ${a3}\nIG baddie? ${a4}\n\nAnd YES, I accept to be your Jordan Hersey 😍`;
+  const text = `Hey, I did your questionnaire ❤️\n\nHow well do I know you? ${a2}wife? ${a3}\nIG baddie? ${a4}\n\nAnd YES, I accept to be your Jordan Hersey 😍`;
   const url = `https://instagram.com/beneshejnr`;
   navigator.clipboard.writeText(text);
   alert("Answers copied! Now paste them in my DM ❤️");
