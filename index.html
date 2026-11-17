@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick Question 👀</title>
+<style>
+body{font-family:Arial; background:#fff0f5; text-align:center; padding:20px; margin:0}
+.card{background:white; max-width:400px; margin:20px auto; padding:20px; border-radius:20px; box-shadow:0 5px 20px rgba(0,0,0,0.1)}
+img{width:100%; border-radius:15px; object-fit:cover}
+h2{font-size:22px}
+button{padding:14px 28px; font-size:18px; border:none; border-radius:30px; cursor:pointer; margin:8px}
+.yes{background:#ff2d55; color:white}
+.no{background:#eee; color:#333}
+input, textarea{width:90%; padding:12px; border-radius:12px; border:1px solid #ddd; font-size:16px; margin:10px 0}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="card" id="q0">
+  <h2>Wait... before we start 👀❤️</h2>
+  <p>Who are you? I need to know who this beautiful soul is.</p>
+  
+  <p style="text-align:left; margin-bottom:2px;"><b>Your name:</b></p>
+  <input id="herName" placeholder="Type your name." />
+
+  <p style="text-align:left; margin-bottom:2px;"><b>Your current mood:</b></p>
+  <input id="herMood" placeholder="Happy? Blushing? Smiling? 😊" />
+
+  <button class="yes" onclick="checkMood()">Continue ➡️</button>
+  <p id="moodMsg" style="color:#ff2d55; font-weight:bold;"></p>
+</div>
+<div class="card" id="q1">
+  <img src="me.jpg">
+  <h2>Do you know this person? 👀</h2>
+  <button class="yes" onclick="next('q1','q2')">YES 😍</button>
+  <button class="no" id="noBtn" onclick="noClick()">NO</button>
+  <p id="noMsg" style="color:#ff2d55"></p>
+</div>
+
+<div class="card hidden" id="q2">
+  <h2>How well do you know him?</h2>
+  <textarea id="a2" placeholder="Be honest... 😏"></textarea><br>
+  <button class="yes" onclick="next('q2','q3')">Next ➡️</button>
+</div>
+
+<div class="card hidden" id="q3">
+  <h2>He says he wants you to be his girlfriend, best friend, partner and a wife, what do you think? 💍</h2>
+  <textarea id="a3" placeholder="Type here..."></textarea><br>
+  <button class="yes" onclick="next('q3','q4')">Next ➡️</button>
+</div>
+
+<div class="card hidden" id="q4">
+  <h2>He says you look like one of the IG baddies in the US. Do you know who that is? 🔥</h2>
+  <textarea id="a4" placeholder="Who do you think?"></textarea><br>
+  <button class="yes" onclick="next('q4','q5')">Next ➡️</button>
+</div>
+
+<div class="card hidden" id="q5">
+  <h2>Do you agree with him? 👀</h2>
+  <button class="yes" onclick="next('q5','q6')">YES</button>
+  <button class="no" onclick="next('q5','q6')">NO</button>
+</div>
+
+<div class="card hidden" id="q6">
+  <h2>He wants you to be his Jordan Hersey, do you accept that? 🥺</h2>
+  <button class="yes" onclick="finish()" style="font-size:22px; padding:18px 40px;">YES ❤️</button>
+  <p style="font-size:12px; color:#999;">(There is no other option 😂)</p>
+</div>
+
+<div class="card hidden" id="final">
+  <h2>You just made his day ❤️</h2>
+  <p>Screenshot this and send it to him on Instagram!</p>
+  <h1>🎉❤️🎉</h1>
+  <button class="yes" onclick="sendIG()">Send answers to him on IG</button>
+</div>
+
+<script>
+let noCount = 0;
+function next(hide, show){
+  document.getElementById(hide).classList.add('hidden');
+  document.getElementById(show).classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+function noClick(){
+  const msgs = ["Try again 😂", "Are you sure? Look again 👀", "Wrong answer! 😭", "Okay just click YES now 😂"];
+  document.getElementById('noMsg').innerText = msgs[noCount % msgs.length];
+  noCount++;
+  // Make NO button run away a little
+  const btn = document.getElementById('noBtn');
+  btn.style.transform = `translate(${Math.random()*20-10}px, ${Math.random()*20-10}px)`;
+}
+function finish(){
+  next('q6','final');
+}
+function sendIG(){
+  const a2 = document.getElementById('a2').value;
+  const a3 = document.getElementById('a3').value;
+  const a4 = document.getElementById('a4').value;
+  const text = `Hey, I did your questionnaire ❤️\n\nHow well do I know you? ${a2}\nGirlfriend/best friend/partner/wife? ${a3}\nIG baddie? ${a4}\n\nAnd YES, I accept to be your Jordan Hersey 😍`;
+  const url = `https://instagram.com/beneshejnr`;
+  navigator.clipboard.writeText(text);
+  alert("Answers copied! Now paste them in my DM ❤️");
+  window.open(url, '_blank');
+}
+</script>
+</body>
+</html>
